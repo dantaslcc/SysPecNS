@@ -49,8 +49,10 @@ namespace SysPecNSLib
             Ativo = ativo;
         }
 
-        public void Inserir() 
+        public void Inserir()
+
         {
+            //Inserir os Usuarios no Banco de dados 
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "sp_usuario_insert";
@@ -58,13 +60,14 @@ namespace SysPecNSLib
             cmd.Parameters.AddWithValue("spemail", Email);
             cmd.Parameters.AddWithValue("spsenha", Senha);
             cmd.Parameters.AddWithValue("spnivel", Nivel.Id);
+            cmd.Parameters.AddWithValue("spativo", Ativo);
             var dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 Id = dr.GetInt32(0);
             }
-
         }
+
         /// <summary>
         /// Obter por Id é um método estático que retorna
         /// um objeto usuário completo baseado no id informado
@@ -91,12 +94,21 @@ namespace SysPecNSLib
             }
             return usuario;
         }
-        public static List<Usuario> ObterLista() 
+        public static List<Usuario> ObterLista(string? nome="" ) 
         {
             List<Usuario> lista = new();
             var comandosSQL = Banco.Abrir();
             comandosSQL.CommandType = CommandType.Text;
-            comandosSQL.CommandText = "select * from usuarios order by nome";
+            if (nome=="")
+            {
+                comandosSQL.CommandText = "select * from usuarios order by nome";
+            }
+            
+            else
+            {
+                comandosSQL.CommandText = $"select * from usuarios where nome like '%{nome}%' order by nome";
+            }
+
             var dr = comandosSQL.ExecuteReader();
             while (dr.Read())
             {
