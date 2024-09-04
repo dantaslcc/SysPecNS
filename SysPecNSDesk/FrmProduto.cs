@@ -111,6 +111,7 @@ namespace SysPecNSDesk
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            // sai que é sua tafarel
             Produto produto = new(
                 int.Parse(txtID.Text),
                 txtCodBar.Text,
