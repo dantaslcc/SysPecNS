@@ -24,11 +24,17 @@ namespace SysPecNSLib
             Sigla = sigla;
         }
 
-        public Categoria(int id, string? nome, string? sigla)
+        public Categoria(int id, string? nome, string? sigla = null)
         {
             Id = id;
             Nome = nome;
             Sigla = sigla;
+        }
+
+        public Categoria(int id, string? nome)
+        {
+            Id = id;
+            Nome = nome;
         }
         public void Inserir()
         {
@@ -48,20 +54,20 @@ namespace SysPecNSLib
             var dr = cmd.ExecuteReader();
             if (dr.Read())
             {
-                categoria = new(dr.GetInt32(0), dr.GetString(1), dr.GetString(2));
+                categoria = new(dr.GetInt32(0), dr.GetString(1), null);
             }
             return categoria;
         }
 
-        public  static List<Categoria> ObterLista(int id)
+        public  static List<Categoria> ObterLista()
         {
             List<Categoria> categorias = new();
             var cmd = Banco.Abrir();
-            cmd.CommandText = $"select *from categorias where id = {id}";
+            cmd.CommandText = "select *from categorias";
             var dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                categorias.Add(new(dr.GetInt32(0), dr.GetString(1), dr.GetString(2)));
+                categorias.Add(new(dr.GetInt32(0), dr.GetString(1), null));
             }
             return categorias;
         }
