@@ -51,26 +51,37 @@
             txtNome = new TextBox();
             txtID = new TextBox();
             tabPage2 = new TabPage();
-            label9 = new Label();
-            textBox2 = new TextBox();
-            label8 = new Label();
-            textBox1 = new TextBox();
-            textBox3 = new TextBox();
-            label10 = new Label();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
-            textBox7 = new TextBox();
-            textBox8 = new TextBox();
-            label11 = new Label();
-            label12 = new Label();
-            label13 = new Label();
-            label14 = new Label();
             label15 = new Label();
+            label14 = new Label();
+            label13 = new Label();
+            label12 = new Label();
+            label11 = new Label();
+            txtTipo = new TextBox();
+            txtUF = new TextBox();
+            txtCidade = new TextBox();
+            txtBairro = new TextBox();
+            txtComplemento = new TextBox();
+            label10 = new Label();
+            txtNumero = new TextBox();
+            label9 = new Label();
+            txtLogradouro = new TextBox();
+            label8 = new Label();
+            txtCep = new TextBox();
+            dataGridView1 = new DataGridView();
+            clnCep = new DataGridViewTextBoxColumn();
+            clnNumero = new DataGridViewTextBoxColumn();
+            clnLogradouro = new DataGridViewTextBoxColumn();
+            clnComplemento = new DataGridViewTextBoxColumn();
+            clnCidade = new DataGridViewTextBoxColumn();
+            clnBairro = new DataGridViewTextBoxColumn();
+            clnUF = new DataGridViewTextBoxColumn();
+            clnTipo = new DataGridViewTextBoxColumn();
+            btnConfirmar = new Button();
             groupBox1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
@@ -286,22 +297,24 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(btnConfirmar);
+            tabPage2.Controls.Add(dataGridView1);
             tabPage2.Controls.Add(label15);
             tabPage2.Controls.Add(label14);
             tabPage2.Controls.Add(label13);
             tabPage2.Controls.Add(label12);
             tabPage2.Controls.Add(label11);
-            tabPage2.Controls.Add(textBox8);
-            tabPage2.Controls.Add(textBox7);
-            tabPage2.Controls.Add(textBox6);
-            tabPage2.Controls.Add(textBox5);
-            tabPage2.Controls.Add(textBox4);
+            tabPage2.Controls.Add(txtTipo);
+            tabPage2.Controls.Add(txtUF);
+            tabPage2.Controls.Add(txtCidade);
+            tabPage2.Controls.Add(txtBairro);
+            tabPage2.Controls.Add(txtComplemento);
             tabPage2.Controls.Add(label10);
-            tabPage2.Controls.Add(textBox3);
+            tabPage2.Controls.Add(txtNumero);
             tabPage2.Controls.Add(label9);
-            tabPage2.Controls.Add(textBox2);
+            tabPage2.Controls.Add(txtLogradouro);
             tabPage2.Controls.Add(label8);
-            tabPage2.Controls.Add(textBox1);
+            tabPage2.Controls.Add(txtCep);
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
@@ -310,44 +323,86 @@
             tabPage2.Text = "Enderecos";
             tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label9
+            // label15
             // 
-            label9.AutoSize = true;
-            label9.Location = new Point(17, 66);
-            label9.Name = "label9";
-            label9.Size = new Size(69, 15);
-            label9.TabIndex = 3;
-            label9.Text = "Logradouro";
+            label15.AutoSize = true;
+            label15.Location = new Point(20, 149);
+            label15.Name = "label15";
+            label15.Size = new Size(30, 15);
+            label15.TabIndex = 15;
+            label15.Text = "Tipo";
             // 
-            // textBox2
+            // label14
             // 
-            textBox2.Location = new Point(20, 87);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(126, 23);
-            textBox2.TabIndex = 2;
+            label14.AutoSize = true;
+            label14.Location = new Point(355, 105);
+            label14.Name = "label14";
+            label14.Size = new Size(21, 15);
+            label14.TabIndex = 14;
+            label14.Text = "UF";
             // 
-            // label8
+            // label13
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(20, 17);
-            label8.Name = "label8";
-            label8.Size = new Size(28, 15);
-            label8.TabIndex = 1;
-            label8.Text = "CEP";
+            label13.AutoSize = true;
+            label13.Location = new Point(355, 61);
+            label13.Name = "label13";
+            label13.Size = new Size(44, 15);
+            label13.TabIndex = 13;
+            label13.Text = "Cidade";
             // 
-            // textBox1
+            // label12
             // 
-            textBox1.Location = new Point(20, 35);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(126, 23);
-            textBox1.TabIndex = 0;
+            label12.AutoSize = true;
+            label12.Location = new Point(20, 105);
+            label12.Name = "label12";
+            label12.Size = new Size(38, 15);
+            label12.TabIndex = 12;
+            label12.Text = "Bairro";
             // 
-            // textBox3
+            // label11
             // 
-            textBox3.Location = new Point(166, 35);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(54, 23);
-            textBox3.TabIndex = 4;
+            label11.AutoSize = true;
+            label11.Location = new Point(165, 61);
+            label11.Name = "label11";
+            label11.Size = new Size(84, 15);
+            label11.TabIndex = 11;
+            label11.Text = "Complemento";
+            // 
+            // txtTipo
+            // 
+            txtTipo.Location = new Point(20, 165);
+            txtTipo.Name = "txtTipo";
+            txtTipo.Size = new Size(100, 23);
+            txtTipo.TabIndex = 10;
+            // 
+            // txtUF
+            // 
+            txtUF.Location = new Point(355, 123);
+            txtUF.Name = "txtUF";
+            txtUF.Size = new Size(147, 23);
+            txtUF.TabIndex = 9;
+            txtUF.TextChanged += textBox7_TextChanged;
+            // 
+            // txtCidade
+            // 
+            txtCidade.Location = new Point(355, 79);
+            txtCidade.Name = "txtCidade";
+            txtCidade.Size = new Size(147, 23);
+            txtCidade.TabIndex = 8;
+            // 
+            // txtBairro
+            // 
+            txtBairro.Location = new Point(20, 123);
+            txtBairro.Name = "txtBairro";
+            txtBairro.Size = new Size(308, 23);
+            txtBairro.TabIndex = 7;
+            // 
+            // txtComplemento
+            // 
+            txtComplemento.Location = new Point(165, 79);
+            txtComplemento.Name = "txtComplemento";
+            txtComplemento.Size = new Size(155, 23);
+            txtComplemento.TabIndex = 6;
             // 
             // label10
             // 
@@ -358,86 +413,113 @@
             label10.TabIndex = 5;
             label10.Text = "Numero";
             // 
-            // textBox4
+            // txtNumero
             // 
-            textBox4.Location = new Point(173, 87);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(155, 23);
-            textBox4.TabIndex = 6;
+            txtNumero.Location = new Point(166, 35);
+            txtNumero.Name = "txtNumero";
+            txtNumero.Size = new Size(54, 23);
+            txtNumero.TabIndex = 4;
             // 
-            // textBox5
+            // label9
             // 
-            textBox5.Location = new Point(20, 140);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(308, 23);
-            textBox5.TabIndex = 7;
+            label9.AutoSize = true;
+            label9.Location = new Point(20, 61);
+            label9.Name = "label9";
+            label9.Size = new Size(69, 15);
+            label9.TabIndex = 3;
+            label9.Text = "Logradouro";
             // 
-            // textBox6
+            // txtLogradouro
             // 
-            textBox6.Location = new Point(355, 140);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(100, 23);
-            textBox6.TabIndex = 8;
+            txtLogradouro.Location = new Point(20, 79);
+            txtLogradouro.Name = "txtLogradouro";
+            txtLogradouro.Size = new Size(126, 23);
+            txtLogradouro.TabIndex = 2;
             // 
-            // textBox7
+            // label8
             // 
-            textBox7.Location = new Point(20, 195);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(137, 23);
-            textBox7.TabIndex = 9;
-            textBox7.TextChanged += textBox7_TextChanged;
+            label8.AutoSize = true;
+            label8.Location = new Point(20, 17);
+            label8.Name = "label8";
+            label8.Size = new Size(28, 15);
+            label8.TabIndex = 1;
+            label8.Text = "CEP";
             // 
-            // textBox8
+            // txtCep
             // 
-            textBox8.Location = new Point(191, 195);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(100, 23);
-            textBox8.TabIndex = 10;
+            txtCep.Location = new Point(20, 35);
+            txtCep.Name = "txtCep";
+            txtCep.Size = new Size(126, 23);
+            txtCep.TabIndex = 0;
             // 
-            // label11
+            // dataGridView1
             // 
-            label11.AutoSize = true;
-            label11.Location = new Point(173, 69);
-            label11.Name = "label11";
-            label11.Size = new Size(84, 15);
-            label11.TabIndex = 11;
-            label11.Text = "Complemento";
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { clnCep, clnNumero, clnLogradouro, clnComplemento, clnCidade, clnBairro, clnUF, clnTipo });
+            dataGridView1.Location = new Point(20, 204);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.Size = new Size(482, 150);
+            dataGridView1.TabIndex = 16;
             // 
-            // label12
+            // clnCep
             // 
-            label12.AutoSize = true;
-            label12.Location = new Point(20, 122);
-            label12.Name = "label12";
-            label12.Size = new Size(38, 15);
-            label12.TabIndex = 12;
-            label12.Text = "Bairro";
+            clnCep.HeaderText = "CEP";
+            clnCep.Name = "clnCep";
+            clnCep.ReadOnly = true;
             // 
-            // label13
+            // clnNumero
             // 
-            label13.AutoSize = true;
-            label13.Location = new Point(355, 122);
-            label13.Name = "label13";
-            label13.Size = new Size(44, 15);
-            label13.TabIndex = 13;
-            label13.Text = "Cidade";
+            clnNumero.HeaderText = "Numero";
+            clnNumero.Name = "clnNumero";
+            clnNumero.ReadOnly = true;
             // 
-            // label14
+            // clnLogradouro
             // 
-            label14.AutoSize = true;
-            label14.Location = new Point(21, 176);
-            label14.Name = "label14";
-            label14.Size = new Size(21, 15);
-            label14.TabIndex = 14;
-            label14.Text = "UF";
+            clnLogradouro.HeaderText = "Logradouro";
+            clnLogradouro.Name = "clnLogradouro";
+            clnLogradouro.ReadOnly = true;
             // 
-            // label15
+            // clnComplemento
             // 
-            label15.AutoSize = true;
-            label15.Location = new Point(193, 176);
-            label15.Name = "label15";
-            label15.Size = new Size(30, 15);
-            label15.TabIndex = 15;
-            label15.Text = "Tipo";
+            clnComplemento.HeaderText = "Complemento";
+            clnComplemento.Name = "clnComplemento";
+            clnComplemento.ReadOnly = true;
+            // 
+            // clnCidade
+            // 
+            clnCidade.HeaderText = "Cidade";
+            clnCidade.Name = "clnCidade";
+            clnCidade.ReadOnly = true;
+            // 
+            // clnBairro
+            // 
+            clnBairro.HeaderText = "Bairro";
+            clnBairro.Name = "clnBairro";
+            clnBairro.ReadOnly = true;
+            // 
+            // clnUF
+            // 
+            clnUF.HeaderText = "UF";
+            clnUF.Name = "clnUF";
+            clnUF.ReadOnly = true;
+            // 
+            // clnTipo
+            // 
+            clnTipo.HeaderText = "Tipo";
+            clnTipo.Name = "clnTipo";
+            clnTipo.ReadOnly = true;
+            // 
+            // btnConfirmar
+            // 
+            btnConfirmar.Location = new Point(141, 165);
+            btnConfirmar.Name = "btnConfirmar";
+            btnConfirmar.Size = new Size(75, 23);
+            btnConfirmar.TabIndex = 17;
+            btnConfirmar.Text = "&Confirmar";
+            btnConfirmar.UseVisualStyleBackColor = true;
             // 
             // FrmCliente
             // 
@@ -453,6 +535,7 @@
             tabPage1.PerformLayout();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -481,21 +564,31 @@
         private Button btnEditar;
         private Button btnInserir;
         private Button btnCancelar;
-        private TextBox textBox1;
+        private TextBox txtCep;
         private Label label8;
         private Label label9;
-        private TextBox textBox2;
-        private TextBox textBox5;
-        private TextBox textBox4;
+        private TextBox txtLogradouro;
+        private TextBox txtBairro;
+        private TextBox txtComplemento;
         private Label label10;
-        private TextBox textBox3;
-        private TextBox textBox8;
-        private TextBox textBox7;
-        private TextBox textBox6;
+        private TextBox txtNumero;
+        private TextBox txtTipo;
+        private TextBox txtUF;
+        private TextBox txtCidade;
         private Label label13;
         private Label label12;
         private Label label11;
         private Label label14;
         private Label label15;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn clnCep;
+        private DataGridViewTextBoxColumn clnNumero;
+        private DataGridViewTextBoxColumn clnLogradouro;
+        private DataGridViewTextBoxColumn clnComplemento;
+        private DataGridViewTextBoxColumn clnCidade;
+        private DataGridViewTextBoxColumn clnBairro;
+        private DataGridViewTextBoxColumn clnUF;
+        private DataGridViewTextBoxColumn clnTipo;
+        private Button btnConfirmar;
     }
 }

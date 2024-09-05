@@ -16,6 +16,7 @@ namespace SysPecNSLib
         public string? Telefone { get; set; }
         public DateTime? Data_nasc {  get; set; }
         public DateTime? Data_cad { get; set; }
+        public string? Endereco { get; set; }
         public bool Ativo { get; set; }
 
         public Cliente() 
