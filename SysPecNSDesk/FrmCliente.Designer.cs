@@ -51,6 +51,16 @@
             txtNome = new TextBox();
             txtID = new TextBox();
             tabPage2 = new TabPage();
+            btnConfirmar = new Button();
+            dataGridView1 = new DataGridView();
+            clnCep = new DataGridViewTextBoxColumn();
+            clnNumero = new DataGridViewTextBoxColumn();
+            clnLogradouro = new DataGridViewTextBoxColumn();
+            clnComplemento = new DataGridViewTextBoxColumn();
+            clnCidade = new DataGridViewTextBoxColumn();
+            clnBairro = new DataGridViewTextBoxColumn();
+            clnUF = new DataGridViewTextBoxColumn();
+            clnTipo = new DataGridViewTextBoxColumn();
             label15 = new Label();
             label14 = new Label();
             label13 = new Label();
@@ -67,21 +77,18 @@
             txtLogradouro = new TextBox();
             label8 = new Label();
             txtCep = new TextBox();
-            dataGridView1 = new DataGridView();
-            clnCep = new DataGridViewTextBoxColumn();
-            clnNumero = new DataGridViewTextBoxColumn();
-            clnLogradouro = new DataGridViewTextBoxColumn();
-            clnComplemento = new DataGridViewTextBoxColumn();
-            clnCidade = new DataGridViewTextBoxColumn();
-            clnBairro = new DataGridViewTextBoxColumn();
-            clnUF = new DataGridViewTextBoxColumn();
-            clnTipo = new DataGridViewTextBoxColumn();
-            btnConfirmar = new Button();
+            dataGridView2 = new DataGridView();
+            clnID = new DataGridViewTextBoxColumn();
+            clnNome = new DataGridViewTextBoxColumn();
+            clnEmail = new DataGridViewTextBoxColumn();
+            clnCPF = new DataGridViewTextBoxColumn();
+            clnTelefone = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
@@ -106,6 +113,7 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(dataGridView2);
             tabPage1.Controls.Add(btnCancelar);
             tabPage1.Controls.Add(btnDeletar);
             tabPage1.Controls.Add(btnEditar);
@@ -135,7 +143,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(308, 253);
+            btnCancelar.Location = new Point(274, 174);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(75, 23);
             btnCancelar.TabIndex = 18;
@@ -144,7 +152,7 @@
             // 
             // btnDeletar
             // 
-            btnDeletar.Location = new Point(218, 253);
+            btnDeletar.Location = new Point(179, 174);
             btnDeletar.Name = "btnDeletar";
             btnDeletar.Size = new Size(75, 23);
             btnDeletar.TabIndex = 17;
@@ -153,7 +161,7 @@
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(126, 253);
+            btnEditar.Location = new Point(89, 174);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(75, 23);
             btnEditar.TabIndex = 16;
@@ -162,7 +170,7 @@
             // 
             // btnInserir
             // 
-            btnInserir.Location = new Point(29, 253);
+            btnInserir.Location = new Point(8, 174);
             btnInserir.Name = "btnInserir";
             btnInserir.Size = new Size(75, 23);
             btnInserir.TabIndex = 15;
@@ -173,7 +181,7 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(29, 191);
+            checkBox1.Location = new Point(29, 149);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(54, 19);
             checkBox1.TabIndex = 14;
@@ -183,7 +191,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(308, 191);
+            label7.Location = new Point(355, 146);
             label7.Name = "label7";
             label7.Size = new Size(98, 15);
             label7.TabIndex = 13;
@@ -192,7 +200,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(308, 137);
+            label6.Location = new Point(355, 102);
             label6.Name = "label6";
             label6.Size = new Size(114, 15);
             label6.TabIndex = 12;
@@ -201,7 +209,7 @@
             // dateCadastro
             // 
             dateCadastro.Format = DateTimePickerFormat.Short;
-            dateCadastro.Location = new Point(308, 209);
+            dateCadastro.Location = new Point(355, 164);
             dateCadastro.Name = "dateCadastro";
             dateCadastro.Size = new Size(139, 23);
             dateCadastro.TabIndex = 11;
@@ -209,7 +217,7 @@
             // dateNascimento
             // 
             dateNascimento.Format = DateTimePickerFormat.Short;
-            dateNascimento.Location = new Point(308, 155);
+            dateNascimento.Location = new Point(355, 120);
             dateNascimento.Name = "dateNascimento";
             dateNascimento.Size = new Size(139, 23);
             dateNascimento.TabIndex = 10;
@@ -217,7 +225,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(29, 137);
+            label5.Location = new Point(29, 102);
             label5.Name = "label5";
             label5.Size = new Size(51, 15);
             label5.TabIndex = 9;
@@ -225,7 +233,7 @@
             // 
             // txtTel
             // 
-            txtTel.Location = new Point(29, 155);
+            txtTel.Location = new Point(29, 120);
             txtTel.Name = "txtTel";
             txtTel.Size = new Size(253, 23);
             txtTel.TabIndex = 8;
@@ -233,7 +241,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(299, 84);
+            label4.Location = new Point(299, 59);
             label4.Name = "label4";
             label4.Size = new Size(28, 15);
             label4.TabIndex = 7;
@@ -242,7 +250,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(29, 84);
+            label3.Location = new Point(29, 59);
             label3.Name = "label3";
             label3.Size = new Size(36, 15);
             label3.TabIndex = 6;
@@ -252,7 +260,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(98, 34);
+            label2.Location = new Point(98, 15);
             label2.Name = "label2";
             label2.Size = new Size(40, 15);
             label2.TabIndex = 5;
@@ -261,7 +269,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(29, 34);
+            label1.Location = new Point(29, 15);
             label1.Name = "label1";
             label1.Size = new Size(18, 15);
             label1.TabIndex = 4;
@@ -269,28 +277,28 @@
             // 
             // txtCpf
             // 
-            txtCpf.Location = new Point(299, 102);
+            txtCpf.Location = new Point(299, 77);
             txtCpf.Name = "txtCpf";
             txtCpf.Size = new Size(148, 23);
             txtCpf.TabIndex = 3;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(29, 102);
+            txtEmail.Location = new Point(29, 76);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(253, 23);
             txtEmail.TabIndex = 2;
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(98, 52);
+            txtNome.Location = new Point(98, 33);
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(349, 23);
             txtNome.TabIndex = 1;
             // 
             // txtID
             // 
-            txtID.Location = new Point(29, 52);
+            txtID.Location = new Point(29, 33);
             txtID.Name = "txtID";
             txtID.Size = new Size(51, 23);
             txtID.TabIndex = 0;
@@ -322,6 +330,75 @@
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Enderecos";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnConfirmar
+            // 
+            btnConfirmar.Location = new Point(141, 165);
+            btnConfirmar.Name = "btnConfirmar";
+            btnConfirmar.Size = new Size(75, 23);
+            btnConfirmar.TabIndex = 17;
+            btnConfirmar.Text = "&Confirmar";
+            btnConfirmar.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { clnCep, clnNumero, clnLogradouro, clnComplemento, clnCidade, clnBairro, clnUF, clnTipo });
+            dataGridView1.Location = new Point(20, 204);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.Size = new Size(482, 150);
+            dataGridView1.TabIndex = 16;
+            // 
+            // clnCep
+            // 
+            clnCep.HeaderText = "CEP";
+            clnCep.Name = "clnCep";
+            clnCep.ReadOnly = true;
+            // 
+            // clnNumero
+            // 
+            clnNumero.HeaderText = "Numero";
+            clnNumero.Name = "clnNumero";
+            clnNumero.ReadOnly = true;
+            // 
+            // clnLogradouro
+            // 
+            clnLogradouro.HeaderText = "Logradouro";
+            clnLogradouro.Name = "clnLogradouro";
+            clnLogradouro.ReadOnly = true;
+            // 
+            // clnComplemento
+            // 
+            clnComplemento.HeaderText = "Complemento";
+            clnComplemento.Name = "clnComplemento";
+            clnComplemento.ReadOnly = true;
+            // 
+            // clnCidade
+            // 
+            clnCidade.HeaderText = "Cidade";
+            clnCidade.Name = "clnCidade";
+            clnCidade.ReadOnly = true;
+            // 
+            // clnBairro
+            // 
+            clnBairro.HeaderText = "Bairro";
+            clnBairro.Name = "clnBairro";
+            clnBairro.ReadOnly = true;
+            // 
+            // clnUF
+            // 
+            clnUF.HeaderText = "UF";
+            clnUF.Name = "clnUF";
+            clnUF.ReadOnly = true;
+            // 
+            // clnTipo
+            // 
+            clnTipo.HeaderText = "Tipo";
+            clnTipo.Name = "clnTipo";
+            clnTipo.ReadOnly = true;
             // 
             // label15
             // 
@@ -452,74 +529,47 @@
             txtCep.Size = new Size(126, 23);
             txtCep.TabIndex = 0;
             // 
-            // dataGridView1
+            // dataGridView2
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { clnCep, clnNumero, clnLogradouro, clnComplemento, clnCidade, clnBairro, clnUF, clnTipo });
-            dataGridView1.Location = new Point(20, 204);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.Size = new Size(482, 150);
-            dataGridView1.TabIndex = 16;
+            dataGridView2.AllowUserToAddRows = false;
+            dataGridView2.AllowUserToDeleteRows = false;
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { clnID, clnNome, clnEmail, clnCPF, clnTelefone });
+            dataGridView2.Location = new Point(14, 207);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.ReadOnly = true;
+            dataGridView2.Size = new Size(480, 150);
+            dataGridView2.TabIndex = 19;
             // 
-            // clnCep
+            // clnID
             // 
-            clnCep.HeaderText = "CEP";
-            clnCep.Name = "clnCep";
-            clnCep.ReadOnly = true;
+            clnID.HeaderText = "ID";
+            clnID.Name = "clnID";
+            clnID.ReadOnly = true;
             // 
-            // clnNumero
+            // clnNome
             // 
-            clnNumero.HeaderText = "Numero";
-            clnNumero.Name = "clnNumero";
-            clnNumero.ReadOnly = true;
+            clnNome.HeaderText = "Nome";
+            clnNome.Name = "clnNome";
+            clnNome.ReadOnly = true;
             // 
-            // clnLogradouro
+            // clnEmail
             // 
-            clnLogradouro.HeaderText = "Logradouro";
-            clnLogradouro.Name = "clnLogradouro";
-            clnLogradouro.ReadOnly = true;
+            clnEmail.HeaderText = "Email";
+            clnEmail.Name = "clnEmail";
+            clnEmail.ReadOnly = true;
             // 
-            // clnComplemento
+            // clnCPF
             // 
-            clnComplemento.HeaderText = "Complemento";
-            clnComplemento.Name = "clnComplemento";
-            clnComplemento.ReadOnly = true;
+            clnCPF.HeaderText = "CPF";
+            clnCPF.Name = "clnCPF";
+            clnCPF.ReadOnly = true;
             // 
-            // clnCidade
+            // clnTelefone
             // 
-            clnCidade.HeaderText = "Cidade";
-            clnCidade.Name = "clnCidade";
-            clnCidade.ReadOnly = true;
-            // 
-            // clnBairro
-            // 
-            clnBairro.HeaderText = "Bairro";
-            clnBairro.Name = "clnBairro";
-            clnBairro.ReadOnly = true;
-            // 
-            // clnUF
-            // 
-            clnUF.HeaderText = "UF";
-            clnUF.Name = "clnUF";
-            clnUF.ReadOnly = true;
-            // 
-            // clnTipo
-            // 
-            clnTipo.HeaderText = "Tipo";
-            clnTipo.Name = "clnTipo";
-            clnTipo.ReadOnly = true;
-            // 
-            // btnConfirmar
-            // 
-            btnConfirmar.Location = new Point(141, 165);
-            btnConfirmar.Name = "btnConfirmar";
-            btnConfirmar.Size = new Size(75, 23);
-            btnConfirmar.TabIndex = 17;
-            btnConfirmar.Text = "&Confirmar";
-            btnConfirmar.UseVisualStyleBackColor = true;
+            clnTelefone.HeaderText = "Telefone";
+            clnTelefone.Name = "clnTelefone";
+            clnTelefone.ReadOnly = true;
             // 
             // FrmCliente
             // 
@@ -536,6 +586,7 @@
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
         }
 
@@ -590,5 +641,11 @@
         private DataGridViewTextBoxColumn clnUF;
         private DataGridViewTextBoxColumn clnTipo;
         private Button btnConfirmar;
+        private DataGridView dataGridView2;
+        private DataGridViewTextBoxColumn clnID;
+        private DataGridViewTextBoxColumn clnNome;
+        private DataGridViewTextBoxColumn clnEmail;
+        private DataGridViewTextBoxColumn clnCPF;
+        private DataGridViewTextBoxColumn clnTelefone;
     }
 }
