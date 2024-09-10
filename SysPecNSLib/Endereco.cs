@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Security.Policy;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,148 +12,149 @@ namespace SysPecNSLib
     public class Endereco
     {
         public int Id { get; set; }
-        public Cliente? Cliente { get; set; }
+        public Cliente Cliente { get; set; }
         public string? Cep { get; set; }
         public string? Logradouro { get; set; }
-        public int? Numero { get; set; }
+        public string? Numero { get; set; }
         public string? Complemento { get; set; }
         public string? Bairro { get; set; }
         public string? Cidade { get; set; }
         public string? Uf { get; set; }
-        public string? Tipo_Endereco { get; set; }
-
+        public string? Tipo { get; set; }
 
         public Endereco()
         {
-            Cliente = new();
-        }
 
-        public Endereco(string? cep, string? logradouro, int? numero, string? complemento,
-            string? cidade, string? bairro)
+        }
+        public Endereco(int id, Cliente Idcliente, string? cep, string? logradouro, string? numero, string? complemento, string? bairro, string? cidade, string? uf, string? tipo)
         {
+            Id = id;
+            Cliente = Idcliente;
             Cep = cep;
             Logradouro = logradouro;
             Numero = numero;
             Complemento = complemento;
-            Cidade = cidade;
             Bairro = bairro;
-        }
-        public Endereco(string? cep, int? numero, string? complemento,
-            string? cidade, string? bairro)
-        {
-            Cep = cep;
-            Numero = numero;
-            Complemento = complemento;
             Cidade = cidade;
-            Bairro = bairro;
+            Uf = uf;
+            Tipo = tipo;
         }
-
-        public Endereco(string? cep, string? logradouro, int? numero,
-            string? cidade, string? bairro)
+        public Endereco(int id, Cliente Idcliente, string? cep, string? logradouro, string? numero, string? bairro, string? cidade, string? uf, string? tipo)
         {
+            Id = id;
+            Cliente = Idcliente;
             Cep = cep;
             Logradouro = logradouro;
             Numero = numero;
-            Cidade = cidade;
             Bairro = bairro;
-        }
-
-        public Endereco(string? cep, int? numero,
-            string? cidade, string? bairro)
-        {
-            Cep = cep;
-            Numero = numero;
             Cidade = cidade;
-            Bairro = bairro;
+            Uf = uf;
+            Tipo = tipo;
         }
-
-        public Endereco(Cliente cliente, string? cep, string? logradouro, int? numero, string? complemento,
-             string? cidade, string? bairro)
+        public void Inserir() // inserir o Endereço no banco
         {
-            Cliente = cliente;
-            Cep = cep;
-            Logradouro = logradouro;
-            Numero = numero;
-            Complemento = complemento;
-            Cidade = cidade;
-            Bairro = bairro;
-        }
-
-        public Endereco(Cliente cliente, string? cep, int? numero, string? complemento,
-            string? cidade, string? bairro)
-        {
-            Cliente = cliente;
-            Cep = cep;
-            Numero = numero;
-            Complemento = complemento;
-            Cidade = cidade;
-            Bairro = bairro;
-        }
-
-        public Endereco(Cliente cliente, string? cep, string? logradouro, int? numero,
-             string? cidade, string? bairro)
-        {
-            Cliente = cliente;
-            Cep = cep;
-            Logradouro = logradouro;
-            Numero = numero;
-            Cidade = cidade;
-            Bairro = bairro;
-        }
-
-        public Endereco(Cliente cliente, string? cep, int? numero,
-            string? cidade, string? bairro)
-        {
-            Cliente = cliente;
-            Cep = cep;
-            Numero = numero;
-            Cidade = cidade;
-            Bairro = bairro;
-        }
-
-
-        public void Inserir()
-        {
-            var command = Banco.Abrir();
-            command.CommandType = CommandType.StoredProcedure;
-            command.CommandText = "sp_endereco_insert";
-            command.Parameters.AddWithValue("spcep", Cep);
-            command.Parameters.AddWithValue("splogradouro", Logradouro);
-            command.Parameters.AddWithValue("spnumero", Numero);
-            command.Parameters.AddWithValue("spcomplemento", Complemento);
-            command.Parameters.AddWithValue("spbairro", Bairro);
-            command.Parameters.AddWithValue("spcidade", Cidade);
-            command.Parameters.AddWithValue("spuf", Uf);
-            command.Parameters.AddWithValue("sptipo_endereco", Tipo_Endereco);
-            var dr = command.ExecuteReader();
+            
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "sp_endereco_insert";
+            cmd.Parameters.AddWithValue("spcliente_id", Cliente.Id);
+            cmd.Parameters.AddWithValue("spcep", Cep);
+            cmd.Parameters.AddWithValue("splogradouro", Logradouro);
+            cmd.Parameters.AddWithValue("spnumero", Numero);
+            cmd.Parameters.AddWithValue("spcomplemento", Complemento);
+            cmd.Parameters.AddWithValue("spbairro", Bairro);
+            cmd.Parameters.AddWithValue("spcidade", Cidade);
+            cmd.Parameters.AddWithValue("spuf", Cidade);
+            cmd.Parameters.AddWithValue("sptipo_endereco", Tipo);
+            var dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 Id = dr.GetInt32(0);
             }
         }
-
-        public static Endereco ObterPorId(int Id)
+        public static Endereco ObterPorId(int id) // puxar o endereco do cliente pelo id
         {
+           
             Endereco endereco = new();
-            var command = Banco.Abrir();
-            command.CommandType = CommandType.Text;
-            command.CommandText = $"Select * from enderecos where id = {Id}";
-            var dr = command.ExecuteReader();
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = $"select *from endereco where id = {id}";
+            var dr = cmd.ExecuteReader();
             if (dr.Read())
             {
-               
+                endereco = new(
+                    dr.GetInt32(0),
+                    Cliente.ObterporId(dr.GetInt32(1)),
+                    dr.GetString(2),
+                    dr.GetString(3),
+                    dr.GetString(4),
+                    dr.GetString(5),
+                    dr.GetString(6),
+                    dr.GetString(7),
+                    dr.GetString(8),
+                    dr.GetString(9)
+                    );
             }
 
             return endereco;
         }
+        public static List<Endereco> ObterLista(string? cliente_id = "") // lista de endereco
+        {
+            
+            List<Endereco> lista = new();
+            var comandosSQL = Banco.Abrir();
+            comandosSQL.CommandType = CommandType.Text;
+            if (cliente_id == "")
+            {
+                comandosSQL.CommandText = "select *from endereco order by cliente_id limit 10";
+            }
+            else
+            {
+                comandosSQL.CommandText = $"select *from endereco where cliente_id like '%{cliente_id}%' order by nome limit 10";
+            }
 
 
+            var dr = comandosSQL.ExecuteReader();
+            while (dr.Read())
+            {
+                lista.Add(
+                    new(
+                    dr.GetInt32(0),
+                    Cliente.ObterporId(dr.GetInt32(1)),
+                    dr.GetString(2),
+                    dr.GetString(3),
+                    dr.GetString(4),
+                    dr.GetString(5),
+                    dr.GetString(6),
+                    dr.GetString(7),
+                    dr.GetString(8),
+                    dr.GetString(9)
+                        )
+                    );
+            }
 
+            return lista;
+        }
+        public void Atualizar()
+        {
+            
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "sp_usuario_altera";
+            cmd.Parameters.AddWithValue("spid", Id);
+            cmd.Parameters.AddWithValue("spcliente_id", Cliente.Id);
+            cmd.Parameters.AddWithValue("spcep", Cep);
+            cmd.Parameters.AddWithValue("splogradouro", Logradouro);
+            cmd.Parameters.AddWithValue("spnumero", Numero);
+            cmd.Parameters.AddWithValue("spcomplemento", Complemento);
+            cmd.Parameters.AddWithValue("spbairro", Bairro);
+            cmd.Parameters.AddWithValue("spcidade", Cidade);
+            cmd.Parameters.AddWithValue("spuf", Uf);
+            cmd.Parameters.AddWithValue("sptipo_endereco", Tipo);
+            cmd.ExecuteNonQuery();
+            cmd.Connection.Close();
+        }
 
 
     }
-
-
-
 }
-

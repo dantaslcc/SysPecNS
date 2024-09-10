@@ -57,7 +57,7 @@ namespace SysPecNSLib
             Ativo = ativo;
         }
 
-        public void Inserir()
+        public void Inserir() //Inserir o cliente no banco
         {
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.StoredProcedure;
@@ -77,7 +77,7 @@ namespace SysPecNSLib
 
         }
 
-        public static Cliente ObterporId(int id)
+        public static Cliente ObterporId(int id) // puxar o cliente por id no banco
         {
             Cliente cliente = new();
             var cmd = Banco.Abrir();
@@ -87,20 +87,20 @@ namespace SysPecNSLib
             if (dr.Read())
             {
                 cliente = new(
-                    dr.GetInt32(0),
-                    dr.GetString(1),
-                    dr.GetString(2),
-                    dr.GetString(3),
-                    dr.GetString(4),
-                    dr.GetDateTime(5),
-                    dr.GetDateTime(6),
-                    dr.GetBoolean(7)
+                    dr.GetInt32(0), // id
+                    dr.GetString(1), // nome
+                    dr.GetString(2), // email
+                    dr.GetString(3), // cpf
+                    dr.GetString(4), // telefone
+                    dr.GetDateTime(5), // data de nasc
+                    dr.GetDateTime(6), // data cad
+                    dr.GetBoolean(7) // ativo
                     );
             }
             return cliente;
         }
 
-        public static List<Cliente> ObterLista(string? nome = "")
+        public static List<Cliente> ObterLista(string? nome = "") // obter a lista de clientes - nomes
         {
             List<Cliente> lista = new();
             var comandosSQL = Banco.Abrir();
@@ -119,20 +119,20 @@ namespace SysPecNSLib
             {
                 lista.Add(
                     new(
-                    dr.GetInt32(0),
-                    dr.GetString(1),
-                    dr.GetString(2),
-                    dr.GetString(3),
-                    dr.GetString(4),
-                    dr.GetDateTime(5),
-                    dr.GetDateTime(6),
-                    dr.GetBoolean(7)
+                    dr.GetInt32(0), // id
+                    dr.GetString(1), // nome
+                    dr.GetString(2), // email
+                    dr.GetString(3), // cpf
+                    dr.GetString(4), // telefone
+                    dr.GetDateTime(5), // data nascimento
+                    dr.GetDateTime(6), // data de cad
+                    dr.GetBoolean(7) // ativo
                     )
                     );
             }
             return lista;
         }
-        public void Atualizar()
+        public void Atualizar() 
         {
             // usuario: nome, senha, nível...
             var cmd = Banco.Abrir();
