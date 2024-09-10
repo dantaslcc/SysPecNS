@@ -32,11 +32,6 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             dataGridView2 = new DataGridView();
-            clnID = new DataGridViewTextBoxColumn();
-            clnNome = new DataGridViewTextBoxColumn();
-            clnEmail = new DataGridViewTextBoxColumn();
-            clnCPF = new DataGridViewTextBoxColumn();
-            clnTelefone = new DataGridViewTextBoxColumn();
             btnCancelar = new Button();
             btnDeletar = new Button();
             btnEditar = new Button();
@@ -83,6 +78,14 @@
             txtLogradouro = new TextBox();
             label8 = new Label();
             txtCep = new TextBox();
+            clnID = new DataGridViewTextBoxColumn();
+            clnNome = new DataGridViewTextBoxColumn();
+            clnCPF = new DataGridViewTextBoxColumn();
+            clnTelefone = new DataGridViewTextBoxColumn();
+            clnEmail = new DataGridViewTextBoxColumn();
+            clnDataNasc = new DataGridViewTextBoxColumn();
+            clnDataCad = new DataGridViewTextBoxColumn();
+            clnAtivo = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -146,43 +149,13 @@
             dataGridView2.AllowUserToAddRows = false;
             dataGridView2.AllowUserToDeleteRows = false;
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { clnID, clnNome, clnEmail, clnCPF, clnTelefone });
+            dataGridView2.Columns.AddRange(new DataGridViewColumn[] { clnID, clnNome, clnCPF, clnTelefone, clnEmail, clnDataNasc, clnDataCad, clnAtivo });
             dataGridView2.Location = new Point(14, 207);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.ReadOnly = true;
             dataGridView2.RowHeadersVisible = false;
             dataGridView2.Size = new Size(480, 150);
             dataGridView2.TabIndex = 19;
-            // 
-            // clnID
-            // 
-            clnID.HeaderText = "ID";
-            clnID.Name = "clnID";
-            clnID.ReadOnly = true;
-            // 
-            // clnNome
-            // 
-            clnNome.HeaderText = "Nome";
-            clnNome.Name = "clnNome";
-            clnNome.ReadOnly = true;
-            // 
-            // clnEmail
-            // 
-            clnEmail.HeaderText = "Email";
-            clnEmail.Name = "clnEmail";
-            clnEmail.ReadOnly = true;
-            // 
-            // clnCPF
-            // 
-            clnCPF.HeaderText = "CPF";
-            clnCPF.Name = "clnCPF";
-            clnCPF.ReadOnly = true;
-            // 
-            // clnTelefone
-            // 
-            clnTelefone.HeaderText = "Telefone";
-            clnTelefone.Name = "clnTelefone";
-            clnTelefone.ReadOnly = true;
             // 
             // btnCancelar
             // 
@@ -572,6 +545,54 @@
             txtCep.Size = new Size(126, 23);
             txtCep.TabIndex = 0;
             // 
+            // clnID
+            // 
+            clnID.HeaderText = "ID";
+            clnID.Name = "clnID";
+            clnID.ReadOnly = true;
+            // 
+            // clnNome
+            // 
+            clnNome.HeaderText = "Nome";
+            clnNome.Name = "clnNome";
+            clnNome.ReadOnly = true;
+            // 
+            // clnCPF
+            // 
+            clnCPF.HeaderText = "CPF";
+            clnCPF.Name = "clnCPF";
+            clnCPF.ReadOnly = true;
+            // 
+            // clnTelefone
+            // 
+            clnTelefone.HeaderText = "Telefone";
+            clnTelefone.Name = "clnTelefone";
+            clnTelefone.ReadOnly = true;
+            // 
+            // clnEmail
+            // 
+            clnEmail.HeaderText = "Email";
+            clnEmail.Name = "clnEmail";
+            clnEmail.ReadOnly = true;
+            // 
+            // clnDataNasc
+            // 
+            clnDataNasc.HeaderText = "Data de Nascimento";
+            clnDataNasc.Name = "clnDataNasc";
+            clnDataNasc.ReadOnly = true;
+            // 
+            // clnDataCad
+            // 
+            clnDataCad.HeaderText = "Data de Cadastro";
+            clnDataCad.Name = "clnDataCad";
+            clnDataCad.ReadOnly = true;
+            // 
+            // clnAtivo
+            // 
+            clnAtivo.HeaderText = "Ativo";
+            clnAtivo.Name = "clnAtivo";
+            clnAtivo.ReadOnly = true;
+            // 
             // FrmCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -645,8 +666,11 @@
         private DataGridView dataGridView2;
         private DataGridViewTextBoxColumn clnID;
         private DataGridViewTextBoxColumn clnNome;
-        private DataGridViewTextBoxColumn clnEmail;
         private DataGridViewTextBoxColumn clnCPF;
         private DataGridViewTextBoxColumn clnTelefone;
+        private DataGridViewTextBoxColumn clnEmail;
+        private DataGridViewTextBoxColumn clnDataNasc;
+        private DataGridViewTextBoxColumn clnDataCad;
+        private DataGridViewTextBoxColumn clnAtivo;
     }
 }

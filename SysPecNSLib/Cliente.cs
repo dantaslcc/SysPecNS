@@ -16,7 +16,6 @@ namespace SysPecNSLib
         public string? Telefone { get; set; }
         public DateTime? Data_nasc {  get; set; }
         public DateTime? Data_cad { get; set; }
-        public string? Endereco { get; set; }
         public bool Ativo { get; set; }
 
         public Cliente() 
@@ -64,9 +63,9 @@ namespace SysPecNSLib
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "sp_cliente_insert";
             cmd.Parameters.AddWithValue("spnome", Nome);
-            cmd.Parameters.AddWithValue("spemail", Email);
-            cmd.Parameters.AddWithValue("sptelefone", Telefone);
             cmd.Parameters.AddWithValue("spcpf", Cpf);
+            cmd.Parameters.AddWithValue("sptelefone", Telefone);
+            cmd.Parameters.AddWithValue("spemail", Email);
             cmd.Parameters.AddWithValue("spdatanasc", Data_nasc);
             cmd.Parameters.AddWithValue("spdatacad", Data_cad);
             cmd.Parameters.AddWithValue("spativo", Ativo);
@@ -93,9 +92,9 @@ namespace SysPecNSLib
                     dr.GetString(2),
                     dr.GetString(3),
                     dr.GetString(4),
-                    dr.GetDateTime(4),
                     dr.GetDateTime(5),
-                    dr.GetBoolean(6)
+                    dr.GetDateTime(6),
+                    dr.GetBoolean(7)
                     );
             }
             return cliente;
@@ -125,9 +124,9 @@ namespace SysPecNSLib
                     dr.GetString(2),
                     dr.GetString(3),
                     dr.GetString(4),
-                    dr.GetDateTime(4),
                     dr.GetDateTime(5),
-                    dr.GetBoolean(6)
+                    dr.GetDateTime(6),
+                    dr.GetBoolean(7)
                     )
                     );
             }

@@ -41,13 +41,13 @@
             novoToolStripMenuItem2 = new ToolStripMenuItem();
             movimentoToolStripMenuItem = new ToolStripMenuItem();
             pedidosToolStripMenuItem = new ToolStripMenuItem();
+            novoToolStripMenuItem3 = new ToolStripMenuItem();
+            listaDePeToolStripMenuItem = new ToolStripMenuItem();
             operaçãoToolStripMenuItem = new ToolStripMenuItem();
             caixaToolStripMenuItem = new ToolStripMenuItem();
             sairToolStripMenuItem = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
-            novoToolStripMenuItem3 = new ToolStripMenuItem();
-            listaDePeToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             SuspendLayout();
@@ -72,26 +72,27 @@
             // 
             clientesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { novoToolStripMenuItem, listaToolStripMenuItem });
             clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            clientesToolStripMenuItem.Size = new Size(122, 22);
+            clientesToolStripMenuItem.Size = new Size(180, 22);
             clientesToolStripMenuItem.Text = "&Clientes";
             // 
             // novoToolStripMenuItem
             // 
             novoToolStripMenuItem.Name = "novoToolStripMenuItem";
-            novoToolStripMenuItem.Size = new Size(103, 22);
+            novoToolStripMenuItem.Size = new Size(180, 22);
             novoToolStripMenuItem.Text = "&Novo";
+            novoToolStripMenuItem.Click += novoToolStripMenuItem_Click;
             // 
             // listaToolStripMenuItem
             // 
             listaToolStripMenuItem.Name = "listaToolStripMenuItem";
-            listaToolStripMenuItem.Size = new Size(103, 22);
+            listaToolStripMenuItem.Size = new Size(180, 22);
             listaToolStripMenuItem.Text = "&Lista";
             // 
             // produtosToolStripMenuItem
             // 
             produtosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { novoToolStripMenuItem1, listarToolStripMenuItem });
             produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
-            produtosToolStripMenuItem.Size = new Size(122, 22);
+            produtosToolStripMenuItem.Size = new Size(180, 22);
             produtosToolStripMenuItem.Text = "&Produtos";
             // 
             // novoToolStripMenuItem1
@@ -111,7 +112,7 @@
             // 
             usuáriosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { novoToolStripMenuItem2 });
             usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
-            usuáriosToolStripMenuItem.Size = new Size(122, 22);
+            usuáriosToolStripMenuItem.Size = new Size(180, 22);
             usuáriosToolStripMenuItem.Text = "&Usuários";
             // 
             // novoToolStripMenuItem2
@@ -132,8 +133,21 @@
             // 
             pedidosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { novoToolStripMenuItem3, listaDePeToolStripMenuItem });
             pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
-            pedidosToolStripMenuItem.Size = new Size(180, 22);
+            pedidosToolStripMenuItem.Size = new Size(116, 22);
             pedidosToolStripMenuItem.Text = "&Pedidos";
+            // 
+            // novoToolStripMenuItem3
+            // 
+            novoToolStripMenuItem3.Name = "novoToolStripMenuItem3";
+            novoToolStripMenuItem3.Size = new Size(159, 22);
+            novoToolStripMenuItem3.Text = "&Novo";
+            novoToolStripMenuItem3.Click += novoToolStripMenuItem3_Click;
+            // 
+            // listaDePeToolStripMenuItem
+            // 
+            listaDePeToolStripMenuItem.Name = "listaDePeToolStripMenuItem";
+            listaDePeToolStripMenuItem.Size = new Size(159, 22);
+            listaDePeToolStripMenuItem.Text = "&Lista de Pedidos";
             // 
             // operaçãoToolStripMenuItem
             // 
@@ -169,19 +183,6 @@
             toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             toolStripStatusLabel1.Size = new Size(12, 17);
             toolStripStatusLabel1.Text = "-";
-            // 
-            // novoToolStripMenuItem3
-            // 
-            novoToolStripMenuItem3.Name = "novoToolStripMenuItem3";
-            novoToolStripMenuItem3.Size = new Size(180, 22);
-            novoToolStripMenuItem3.Text = "&Novo";
-            novoToolStripMenuItem3.Click += novoToolStripMenuItem3_Click;
-            // 
-            // listaDePeToolStripMenuItem
-            // 
-            listaDePeToolStripMenuItem.Name = "listaDePeToolStripMenuItem";
-            listaDePeToolStripMenuItem.Size = new Size(180, 22);
-            listaDePeToolStripMenuItem.Text = "&Lista de Pedidos";
             // 
             // FrmPrincipal
             // 
