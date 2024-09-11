@@ -24,7 +24,7 @@ namespace SysPecNSLib
 
         public Endereco()
         {
-
+            Cliente = new();
         }
         public Endereco(int id, Cliente Idcliente, string? cep, string? logradouro, string? numero, string? complemento, string? bairro, string? cidade, string? uf, string? tipo)
         {
@@ -42,6 +42,18 @@ namespace SysPecNSLib
         public Endereco(int id, Cliente Idcliente, string? cep, string? logradouro, string? numero, string? bairro, string? cidade, string? uf, string? tipo)
         {
             Id = id;
+            Cliente = Idcliente;
+            Cep = cep;
+            Logradouro = logradouro;
+            Numero = numero;
+            Bairro = bairro;
+            Cidade = cidade;
+            Uf = uf;
+            Tipo = tipo;
+        }
+
+        public Endereco(Cliente Idcliente, string? cep, string? logradouro, string? numero, string? bairro, string? cidade, string? uf, string? tipo, string? text)
+        {
             Cliente = Idcliente;
             Cep = cep;
             Logradouro = logradouro;
@@ -155,6 +167,6 @@ namespace SysPecNSLib
             cmd.Connection.Close();
         }
 
-
+       
     }
 }

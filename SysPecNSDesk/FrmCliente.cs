@@ -1,4 +1,5 @@
-﻿using SysPecNSLib;
+﻿using MySqlX.XDevAPI;
+using SysPecNSLib;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,10 +19,6 @@ namespace SysPecNSDesk
             InitializeComponent();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
@@ -47,6 +44,7 @@ namespace SysPecNSDesk
                 txtCpf.Clear();
                 txtTel.Clear();
                 txtNome.Focus();
+                txtId_endereco.Text = cliente.Id.ToString();
 
 
             }
@@ -56,9 +54,33 @@ namespace SysPecNSDesk
             }
         }
 
-        private void textBox7_TextChanged(object sender, EventArgs e)
+        private void btnConfirmar_Click(object sender, EventArgs e)
         {
+            Endereco endereco = new(
+              Cliente.ObterporId(int.Parse(txtId_endereco.Text)),
+              txtCep.Text,
+              txtNumero.Text,
+              txtLogradouro.Text,
+              txtComplemento.Text,
+              txtCidade.Text,
+              txtBairro.Text,
+              txtUF.Text,
+              txtTipo.Text
 
+              );
+            endereco.Inserir();
+            if (endereco.Id > 0)
+            {
+                txtID.Text = endereco.Id.ToString(); // para limpar apos o comando ser executado.
+                txtID.Clear();
+                txtNome.Clear();
+                txtEmail.Clear();
+                txtCpf.Clear();
+                txtTel.Clear();
+                txtNome.Focus();
+
+
+            }
         }
     }
 }

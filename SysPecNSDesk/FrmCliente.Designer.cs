@@ -32,6 +32,14 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             dataGridView2 = new DataGridView();
+            clnID = new DataGridViewTextBoxColumn();
+            clnNome = new DataGridViewTextBoxColumn();
+            clnCPF = new DataGridViewTextBoxColumn();
+            clnTelefone = new DataGridViewTextBoxColumn();
+            clnEmail = new DataGridViewTextBoxColumn();
+            clnDataNasc = new DataGridViewTextBoxColumn();
+            clnDataCad = new DataGridViewTextBoxColumn();
+            clnAtivo = new DataGridViewTextBoxColumn();
             btnCancelar = new Button();
             btnDeletar = new Button();
             btnEditar = new Button();
@@ -52,6 +60,8 @@
             txtNome = new TextBox();
             txtID = new TextBox();
             tabPage2 = new TabPage();
+            label16 = new Label();
+            txtId_endereco = new TextBox();
             btnConfirmar = new Button();
             dataGridView1 = new DataGridView();
             clnCep = new DataGridViewTextBoxColumn();
@@ -78,14 +88,6 @@
             txtLogradouro = new TextBox();
             label8 = new Label();
             txtCep = new TextBox();
-            clnID = new DataGridViewTextBoxColumn();
-            clnNome = new DataGridViewTextBoxColumn();
-            clnCPF = new DataGridViewTextBoxColumn();
-            clnTelefone = new DataGridViewTextBoxColumn();
-            clnEmail = new DataGridViewTextBoxColumn();
-            clnDataNasc = new DataGridViewTextBoxColumn();
-            clnDataCad = new DataGridViewTextBoxColumn();
-            clnAtivo = new DataGridViewTextBoxColumn();
             groupBox1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -156,6 +158,54 @@
             dataGridView2.RowHeadersVisible = false;
             dataGridView2.Size = new Size(480, 150);
             dataGridView2.TabIndex = 19;
+            // 
+            // clnID
+            // 
+            clnID.HeaderText = "ID";
+            clnID.Name = "clnID";
+            clnID.ReadOnly = true;
+            // 
+            // clnNome
+            // 
+            clnNome.HeaderText = "Nome";
+            clnNome.Name = "clnNome";
+            clnNome.ReadOnly = true;
+            // 
+            // clnCPF
+            // 
+            clnCPF.HeaderText = "CPF";
+            clnCPF.Name = "clnCPF";
+            clnCPF.ReadOnly = true;
+            // 
+            // clnTelefone
+            // 
+            clnTelefone.HeaderText = "Telefone";
+            clnTelefone.Name = "clnTelefone";
+            clnTelefone.ReadOnly = true;
+            // 
+            // clnEmail
+            // 
+            clnEmail.HeaderText = "Email";
+            clnEmail.Name = "clnEmail";
+            clnEmail.ReadOnly = true;
+            // 
+            // clnDataNasc
+            // 
+            clnDataNasc.HeaderText = "Data de Nascimento";
+            clnDataNasc.Name = "clnDataNasc";
+            clnDataNasc.ReadOnly = true;
+            // 
+            // clnDataCad
+            // 
+            clnDataCad.HeaderText = "Data de Cadastro";
+            clnDataCad.Name = "clnDataCad";
+            clnDataCad.ReadOnly = true;
+            // 
+            // clnAtivo
+            // 
+            clnAtivo.HeaderText = "Ativo";
+            clnAtivo.Name = "clnAtivo";
+            clnAtivo.ReadOnly = true;
             // 
             // btnCancelar
             // 
@@ -271,7 +321,6 @@
             label3.Size = new Size(36, 15);
             label3.TabIndex = 6;
             label3.Text = "Email";
-            label3.Click += label3_Click;
             // 
             // label2
             // 
@@ -321,6 +370,8 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(label16);
+            tabPage2.Controls.Add(txtId_endereco);
             tabPage2.Controls.Add(btnConfirmar);
             tabPage2.Controls.Add(dataGridView1);
             tabPage2.Controls.Add(label15);
@@ -347,6 +398,22 @@
             tabPage2.Text = "Enderecos";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Location = new Point(247, 17);
+            label16.Name = "label16";
+            label16.Size = new Size(18, 15);
+            label16.TabIndex = 19;
+            label16.Text = "ID";
+            // 
+            // txtId_endereco
+            // 
+            txtId_endereco.Location = new Point(247, 35);
+            txtId_endereco.Name = "txtId_endereco";
+            txtId_endereco.Size = new Size(42, 23);
+            txtId_endereco.TabIndex = 18;
+            // 
             // btnConfirmar
             // 
             btnConfirmar.Location = new Point(141, 165);
@@ -355,6 +422,7 @@
             btnConfirmar.TabIndex = 17;
             btnConfirmar.Text = "&Confirmar";
             btnConfirmar.UseVisualStyleBackColor = true;
+            btnConfirmar.Click += btnConfirmar_Click;
             // 
             // dataGridView1
             // 
@@ -365,6 +433,7 @@
             dataGridView1.Location = new Point(20, 204);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.Size = new Size(482, 150);
             dataGridView1.TabIndex = 16;
             // 
@@ -474,7 +543,6 @@
             txtUF.Name = "txtUF";
             txtUF.Size = new Size(147, 23);
             txtUF.TabIndex = 9;
-            txtUF.TextChanged += textBox7_TextChanged;
             // 
             // txtCidade
             // 
@@ -544,54 +612,6 @@
             txtCep.Name = "txtCep";
             txtCep.Size = new Size(126, 23);
             txtCep.TabIndex = 0;
-            // 
-            // clnID
-            // 
-            clnID.HeaderText = "ID";
-            clnID.Name = "clnID";
-            clnID.ReadOnly = true;
-            // 
-            // clnNome
-            // 
-            clnNome.HeaderText = "Nome";
-            clnNome.Name = "clnNome";
-            clnNome.ReadOnly = true;
-            // 
-            // clnCPF
-            // 
-            clnCPF.HeaderText = "CPF";
-            clnCPF.Name = "clnCPF";
-            clnCPF.ReadOnly = true;
-            // 
-            // clnTelefone
-            // 
-            clnTelefone.HeaderText = "Telefone";
-            clnTelefone.Name = "clnTelefone";
-            clnTelefone.ReadOnly = true;
-            // 
-            // clnEmail
-            // 
-            clnEmail.HeaderText = "Email";
-            clnEmail.Name = "clnEmail";
-            clnEmail.ReadOnly = true;
-            // 
-            // clnDataNasc
-            // 
-            clnDataNasc.HeaderText = "Data de Nascimento";
-            clnDataNasc.Name = "clnDataNasc";
-            clnDataNasc.ReadOnly = true;
-            // 
-            // clnDataCad
-            // 
-            clnDataCad.HeaderText = "Data de Cadastro";
-            clnDataCad.Name = "clnDataCad";
-            clnDataCad.ReadOnly = true;
-            // 
-            // clnAtivo
-            // 
-            clnAtivo.HeaderText = "Ativo";
-            clnAtivo.Name = "clnAtivo";
-            clnAtivo.ReadOnly = true;
             // 
             // FrmCliente
             // 
@@ -672,5 +692,7 @@
         private DataGridViewTextBoxColumn clnDataNasc;
         private DataGridViewTextBoxColumn clnDataCad;
         private DataGridViewTextBoxColumn clnAtivo;
+        private Label label16;
+        private TextBox txtId_endereco;
     }
 }

@@ -85,7 +85,7 @@ namespace SysPecNSDesk
                 linha++;
                 total += item.ValorUnit * item.Quantidade - item.Desconto;
             }
-            textBox1
+            
         }
 
         private void btnInserePedido_Click(object sender, EventArgs e)
