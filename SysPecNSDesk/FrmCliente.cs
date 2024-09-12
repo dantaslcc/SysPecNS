@@ -59,28 +59,37 @@ namespace SysPecNSDesk
             Endereco endereco = new(
               Cliente.ObterporId(int.Parse(txtId_endereco.Text)),
               txtCep.Text,
-              txtNumero.Text,
               txtLogradouro.Text,
+              txtNumero.Text,
               txtComplemento.Text,
-              txtCidade.Text,
               txtBairro.Text,
-              txtUF.Text,
-              txtTipo.Text
+              txtCidade.Text,
+              cmbUF.Text,
+              cmbTipo.Text
 
               );
+
             endereco.Inserir();
             if (endereco.Id > 0)
             {
-                txtID.Text = endereco.Id.ToString(); // para limpar apos o comando ser executado.
-                txtID.Clear();
-                txtNome.Clear();
-                txtEmail.Clear();
-                txtCpf.Clear();
-                txtTel.Clear();
-                txtNome.Focus();
-
-
+                txtId_endereco.Text = endereco.Id.ToString();
+                MessageBox.Show($"O Endereço, Foi inserido com sucesso, com o ID do cliente{endereco.Id}");
+                txtCep.Clear();
+                txtLogradouro.Clear();
+                txtNumero.Clear();
+                txtComplemento.Clear();
+                txtBairro.Clear();
+                txtCidade.Clear();
+                cmbUF.Focus();
+                cmbTipo.Focus();
+                txtId_endereco.Text = endereco.Id.ToString();
             }
+            else
+            {
+                MessageBox.Show("Falha ao gravar o endereço do cliente!");
+            }
+
+
         }
     }
 }

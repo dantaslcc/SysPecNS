@@ -25,9 +25,9 @@ namespace SysPecNSLib
         public Cliente(string? nome, string? email, string? telefone, string? cpf, DateTime? data_nasc, DateTime? data_cad)
         {
             Nome = nome;
-            Cpf = cpf;
             Email = email;
             Telefone = telefone;
+            Cpf = cpf;
             Data_nasc = data_nasc;
             Data_cad = data_cad;
             
@@ -82,7 +82,7 @@ namespace SysPecNSLib
             Cliente cliente = new();
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = $"select *from cliente where id = {id}";
+            cmd.CommandText = $"select *from clientes where id = {id}";
             var dr = cmd.ExecuteReader();
             if (dr.Read())
             {
@@ -150,7 +150,7 @@ namespace SysPecNSLib
         {
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = $"update cliente set ativo = 0 where id = {id}";
+            cmd.CommandText = $"update clientes set ativo = 0 where id = {id}";
             cmd.ExecuteNonQuery();
             cmd.Connection.Close();
         }
@@ -158,7 +158,7 @@ namespace SysPecNSLib
         {
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = $"update cliente set ativo = 1 where id = {id}";
+            cmd.CommandText = $"update clientes set ativo = 1 where id = {id}";
             cmd.ExecuteNonQuery();
             cmd.Connection.Close();
 
