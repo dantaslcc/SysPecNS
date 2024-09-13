@@ -30,8 +30,6 @@
         {
             textBox1 = new TextBox();
             label1 = new Label();
-            textBox2 = new TextBox();
-            label2 = new Label();
             textBox3 = new TextBox();
             label3 = new Label();
             dgvEstoque = new DataGridView();
@@ -39,44 +37,32 @@
             clnID = new DataGridViewTextBoxColumn();
             clnQuantidade = new DataGridViewTextBoxColumn();
             clnDataMovimento = new DataGridViewTextBoxColumn();
+            dateTimePicker1 = new DateTimePicker();
+            label2 = new Label();
+            label4 = new Label();
+            btnAtualizar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvEstoque).BeginInit();
             SuspendLayout();
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(12, 100);
+            textBox1.Location = new Point(87, 150);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(66, 23);
+            textBox1.Size = new Size(47, 23);
             textBox1.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 82);
+            label1.Location = new Point(87, 132);
             label1.Name = "label1";
             label1.Size = new Size(18, 15);
             label1.TabIndex = 2;
             label1.Text = "ID";
             // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(111, 100);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 3;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(111, 83);
-            label2.Name = "label2";
-            label2.Size = new Size(58, 15);
-            label2.TabIndex = 4;
-            label2.Text = "Categoria";
-            // 
             // textBox3
             // 
-            textBox3.Location = new Point(245, 101);
+            textBox3.Location = new Point(154, 150);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(100, 23);
             textBox3.TabIndex = 5;
@@ -84,7 +70,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(245, 83);
+            label3.Location = new Point(154, 132);
             label3.Name = "label3";
             label3.Size = new Size(69, 15);
             label3.TabIndex = 6;
@@ -96,7 +82,7 @@
             dgvEstoque.AllowUserToDeleteRows = false;
             dgvEstoque.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvEstoque.Columns.AddRange(new DataGridViewColumn[] { clnID, clnQuantidade, clnDataMovimento });
-            dgvEstoque.Location = new Point(12, 176);
+            dgvEstoque.Location = new Point(28, 233);
             dgvEstoque.Name = "dgvEstoque";
             dgvEstoque.ReadOnly = true;
             dgvEstoque.RowHeadersVisible = false;
@@ -106,7 +92,7 @@
             // 
             // btnPesquisar
             // 
-            btnPesquisar.Location = new Point(387, 100);
+            btnPesquisar.Location = new Point(87, 193);
             btnPesquisar.Name = "btnPesquisar";
             btnPesquisar.Size = new Size(75, 23);
             btnPesquisar.TabIndex = 8;
@@ -133,17 +119,55 @@
             clnDataMovimento.ReadOnly = true;
             clnDataMovimento.Width = 250;
             // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Format = DateTimePickerFormat.Short;
+            dateTimePicker1.Location = new Point(271, 150);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(178, 23);
+            dateTimePicker1.TabIndex = 9;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(271, 132);
+            label2.Name = "label2";
+            label2.Size = new Size(93, 15);
+            label2.TabIndex = 10;
+            label2.Text = "DataMovimento";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Snap ITC", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(87, 9);
+            label4.Name = "label4";
+            label4.Size = new Size(324, 82);
+            label4.TabIndex = 11;
+            label4.Text = "Estoque";
+            // 
+            // btnAtualizar
+            // 
+            btnAtualizar.Location = new Point(179, 193);
+            btnAtualizar.Name = "btnAtualizar";
+            btnAtualizar.Size = new Size(75, 23);
+            btnAtualizar.TabIndex = 12;
+            btnAtualizar.Text = "&Atualizar";
+            btnAtualizar.UseVisualStyleBackColor = true;
+            // 
             // FrmEstoque
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(474, 475);
+            ClientSize = new Size(513, 532);
+            Controls.Add(btnAtualizar);
+            Controls.Add(label4);
+            Controls.Add(label2);
+            Controls.Add(dateTimePicker1);
             Controls.Add(btnPesquisar);
             Controls.Add(dgvEstoque);
             Controls.Add(label3);
             Controls.Add(textBox3);
-            Controls.Add(label2);
-            Controls.Add(textBox2);
             Controls.Add(label1);
             Controls.Add(textBox1);
             Name = "FrmEstoque";
@@ -157,8 +181,6 @@
 
         private TextBox textBox1;
         private Label label1;
-        private TextBox textBox2;
-        private Label label2;
         private TextBox textBox3;
         private Label label3;
         private DataGridView dgvEstoque;
@@ -166,5 +188,9 @@
         private DataGridViewTextBoxColumn clnID;
         private DataGridViewTextBoxColumn clnQuantidade;
         private DataGridViewTextBoxColumn clnDataMovimento;
+        private DateTimePicker dateTimePicker1;
+        private Label label2;
+        private Label label4;
+        private Button btnAtualizar;
     }
 }
