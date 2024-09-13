@@ -37,12 +37,8 @@
             dgvEstoque = new DataGridView();
             btnPesquisar = new Button();
             clnID = new DataGridViewTextBoxColumn();
-            clnCategoriaID = new DataGridViewTextBoxColumn();
-            clnProduto = new DataGridViewTextBoxColumn();
-            clnEstoqueInicial = new DataGridViewTextBoxColumn();
-            clnEntrada = new DataGridViewTextBoxColumn();
-            clnSaida = new DataGridViewTextBoxColumn();
-            clnEstoqueFinal = new DataGridViewTextBoxColumn();
+            clnQuantidade = new DataGridViewTextBoxColumn();
+            clnDataMovimento = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvEstoque).BeginInit();
             SuspendLayout();
             // 
@@ -64,7 +60,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(84, 100);
+            textBox2.Location = new Point(111, 100);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(100, 23);
             textBox2.TabIndex = 3;
@@ -72,7 +68,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(84, 82);
+            label2.Location = new Point(111, 83);
             label2.Name = "label2";
             label2.Size = new Size(58, 15);
             label2.TabIndex = 4;
@@ -80,7 +76,7 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(190, 100);
+            textBox3.Location = new Point(245, 101);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(100, 23);
             textBox3.TabIndex = 5;
@@ -88,7 +84,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(190, 82);
+            label3.Location = new Point(245, 83);
             label3.Name = "label3";
             label3.Size = new Size(69, 15);
             label3.TabIndex = 6;
@@ -99,17 +95,18 @@
             dgvEstoque.AllowUserToAddRows = false;
             dgvEstoque.AllowUserToDeleteRows = false;
             dgvEstoque.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEstoque.Columns.AddRange(new DataGridViewColumn[] { clnID, clnCategoriaID, clnProduto, clnEstoqueInicial, clnEntrada, clnSaida, clnEstoqueFinal });
-            dgvEstoque.Location = new Point(12, 177);
+            dgvEstoque.Columns.AddRange(new DataGridViewColumn[] { clnID, clnQuantidade, clnDataMovimento });
+            dgvEstoque.Location = new Point(12, 176);
             dgvEstoque.Name = "dgvEstoque";
             dgvEstoque.ReadOnly = true;
             dgvEstoque.RowHeadersVisible = false;
-            dgvEstoque.Size = new Size(706, 287);
+            dgvEstoque.Size = new Size(453, 287);
             dgvEstoque.TabIndex = 7;
+            dgvEstoque.CellContentClick += dgvEstoque_CellContentClick;
             // 
             // btnPesquisar
             // 
-            btnPesquisar.Location = new Point(305, 100);
+            btnPesquisar.Location = new Point(387, 100);
             btnPesquisar.Name = "btnPesquisar";
             btnPesquisar.Size = new Size(75, 23);
             btnPesquisar.TabIndex = 8;
@@ -123,53 +120,24 @@
             clnID.Name = "clnID";
             clnID.ReadOnly = true;
             // 
-            // clnCategoriaID
+            // clnQuantidade
             // 
-            clnCategoriaID.Frozen = true;
-            clnCategoriaID.HeaderText = "Categoria_ID";
-            clnCategoriaID.Name = "clnCategoriaID";
-            clnCategoriaID.ReadOnly = true;
+            clnQuantidade.HeaderText = "Quantidade";
+            clnQuantidade.Name = "clnQuantidade";
+            clnQuantidade.ReadOnly = true;
             // 
-            // clnProduto
+            // clnDataMovimento
             // 
-            clnProduto.Frozen = true;
-            clnProduto.HeaderText = "Produto";
-            clnProduto.Name = "clnProduto";
-            clnProduto.ReadOnly = true;
-            // 
-            // clnEstoqueInicial
-            // 
-            clnEstoqueInicial.Frozen = true;
-            clnEstoqueInicial.HeaderText = "EstoqueInicial";
-            clnEstoqueInicial.Name = "clnEstoqueInicial";
-            clnEstoqueInicial.ReadOnly = true;
-            // 
-            // clnEntrada
-            // 
-            clnEntrada.Frozen = true;
-            clnEntrada.HeaderText = "Entrada";
-            clnEntrada.Name = "clnEntrada";
-            clnEntrada.ReadOnly = true;
-            // 
-            // clnSaida
-            // 
-            clnSaida.Frozen = true;
-            clnSaida.HeaderText = "Saida";
-            clnSaida.Name = "clnSaida";
-            clnSaida.ReadOnly = true;
-            // 
-            // clnEstoqueFinal
-            // 
-            clnEstoqueFinal.Frozen = true;
-            clnEstoqueFinal.HeaderText = "EstoqueFinal";
-            clnEstoqueFinal.Name = "clnEstoqueFinal";
-            clnEstoqueFinal.ReadOnly = true;
+            clnDataMovimento.HeaderText = "Data do Ultimo Movimento";
+            clnDataMovimento.Name = "clnDataMovimento";
+            clnDataMovimento.ReadOnly = true;
+            clnDataMovimento.Width = 250;
             // 
             // FrmEstoque
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(730, 475);
+            ClientSize = new Size(474, 475);
             Controls.Add(btnPesquisar);
             Controls.Add(dgvEstoque);
             Controls.Add(label3);
@@ -194,13 +162,9 @@
         private TextBox textBox3;
         private Label label3;
         private DataGridView dgvEstoque;
-        private DataGridViewTextBoxColumn clnID;
-        private DataGridViewTextBoxColumn clnCategoriaID;
-        private DataGridViewTextBoxColumn clnProduto;
-        private DataGridViewTextBoxColumn clnEstoqueInicial;
-        private DataGridViewTextBoxColumn clnEntrada;
-        private DataGridViewTextBoxColumn clnSaida;
-        private DataGridViewTextBoxColumn clnEstoqueFinal;
         private Button btnPesquisar;
+        private DataGridViewTextBoxColumn clnID;
+        private DataGridViewTextBoxColumn clnQuantidade;
+        private DataGridViewTextBoxColumn clnDataMovimento;
     }
 }

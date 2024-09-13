@@ -16,5 +16,10 @@ namespace SysPecNSDesk
         {
             InitializeComponent();
         }
+
+        private void dgvEstoque_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
