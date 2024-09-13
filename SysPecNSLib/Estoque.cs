@@ -12,7 +12,7 @@ namespace SysPecNSLib
     public class Estoque
     {
         public int Id { get; set; }
-        public string? Quantidade { get; set; }
+        public double Quantidade { get; set; }
         public DateTime DataMovimento { get; set; }
 
 
@@ -21,26 +21,27 @@ namespace SysPecNSLib
 
         }
 
-        public Estoque(string? quantidade, DateTime dataMovimento)
+        public Estoque(double quantidade, DateTime dataMovimento)
         {
 
             Quantidade = quantidade;
             DataMovimento = dataMovimento;
         }
 
-        public Estoque(int id ,string? quantidade)
+        public Estoque(int id ,double quantidade)
         {
-            Id = Id;
+            Id = id;
             Quantidade = quantidade;
         }
 
-        public Estoque(int id,string? quantidade, DateTime dataMovimento)
+        public Estoque(int id,double quantidade, DateTime dataMovimento)
         {
-            Id = Id;
+            Id = id;
             Quantidade = quantidade;
             DataMovimento = dataMovimento;
 
         }
+
 
 
         public void Inserir() // inserir o Endereço no banco
@@ -63,7 +64,7 @@ namespace SysPecNSLib
             {
                 estoque = new(
                 dr.GetInt32(0),
-                dr.GetString(1),
+                dr.GetDouble(1),
                 dr.GetDateTime(2)
                     );
             }
@@ -73,17 +74,17 @@ namespace SysPecNSLib
         public static List<Estoque> ObterLista()
         {
             List<Estoque> lista = new List<Estoque>();
-            // consulta para retornar a lista de níveis
+            // consulta para retornar a lista do Estoque
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from niveis";
+            cmd.CommandText = "select * from estoques";
             var dr = cmd.ExecuteReader();
             while (dr.Read())
             {
                 lista.Add(
                     new(
                         dr.GetInt32(0),
-                        dr.GetString(1),
+                        dr.GetDouble(1),
                         dr.GetDateTime(2)
                         )
                     );
@@ -95,7 +96,7 @@ namespace SysPecNSLib
         {
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = $"update estoque " +
+            cmd.CommandText = $"update estoques " +
             $"set quantidade = '{Quantidade}',data_ultimo_movimento = '{DataMovimento}' where produto.id = {Id}";
             return cmd.ExecuteNonQuery() > 0 ? true : false;
 

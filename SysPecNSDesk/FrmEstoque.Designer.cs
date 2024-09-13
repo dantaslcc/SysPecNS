@@ -28,51 +28,53 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
+            txtIdProduto = new TextBox();
             label1 = new Label();
-            textBox3 = new TextBox();
+            txtQuantidade = new TextBox();
             label3 = new Label();
             dgvEstoque = new DataGridView();
-            btnPesquisar = new Button();
             clnID = new DataGridViewTextBoxColumn();
             clnQuantidade = new DataGridViewTextBoxColumn();
             clnDataMovimento = new DataGridViewTextBoxColumn();
-            dateTimePicker1 = new DateTimePicker();
+            btnPesquisar = new Button();
+            dateMovimento = new DateTimePicker();
             label2 = new Label();
             label4 = new Label();
             btnAtualizar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvEstoque).BeginInit();
             SuspendLayout();
             // 
-            // textBox1
+            // txtIdProduto
             // 
-            textBox1.Location = new Point(87, 150);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(47, 23);
-            textBox1.TabIndex = 0;
+            txtIdProduto.Location = new Point(87, 150);
+            txtIdProduto.Name = "txtIdProduto";
+            txtIdProduto.Size = new Size(47, 23);
+            txtIdProduto.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(87, 132);
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(87, 126);
             label1.Name = "label1";
-            label1.Size = new Size(18, 15);
+            label1.Size = new Size(27, 21);
             label1.TabIndex = 2;
             label1.Text = "ID";
             // 
-            // textBox3
+            // txtQuantidade
             // 
-            textBox3.Location = new Point(154, 150);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 5;
+            txtQuantidade.Location = new Point(154, 150);
+            txtQuantidade.Name = "txtQuantidade";
+            txtQuantidade.Size = new Size(100, 23);
+            txtQuantidade.TabIndex = 5;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(154, 132);
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(154, 126);
             label3.Name = "label3";
-            label3.Size = new Size(69, 15);
+            label3.Size = new Size(100, 21);
             label3.TabIndex = 6;
             label3.Text = "Quantidade";
             // 
@@ -89,15 +91,6 @@
             dgvEstoque.Size = new Size(453, 287);
             dgvEstoque.TabIndex = 7;
             dgvEstoque.CellContentClick += dgvEstoque_CellContentClick;
-            // 
-            // btnPesquisar
-            // 
-            btnPesquisar.Location = new Point(87, 193);
-            btnPesquisar.Name = "btnPesquisar";
-            btnPesquisar.Size = new Size(75, 23);
-            btnPesquisar.TabIndex = 8;
-            btnPesquisar.Text = "&Pesquisar";
-            btnPesquisar.UseVisualStyleBackColor = true;
             // 
             // clnID
             // 
@@ -119,20 +112,31 @@
             clnDataMovimento.ReadOnly = true;
             clnDataMovimento.Width = 250;
             // 
-            // dateTimePicker1
+            // btnPesquisar
             // 
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(271, 150);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(178, 23);
-            dateTimePicker1.TabIndex = 9;
+            btnPesquisar.Location = new Point(87, 193);
+            btnPesquisar.Name = "btnPesquisar";
+            btnPesquisar.Size = new Size(75, 23);
+            btnPesquisar.TabIndex = 8;
+            btnPesquisar.Text = "&Pesquisar";
+            btnPesquisar.UseVisualStyleBackColor = true;
+            btnPesquisar.Click += btnPesquisar_Click;
+            // 
+            // dateMovimento
+            // 
+            dateMovimento.Format = DateTimePickerFormat.Short;
+            dateMovimento.Location = new Point(271, 150);
+            dateMovimento.Name = "dateMovimento";
+            dateMovimento.Size = new Size(156, 23);
+            dateMovimento.TabIndex = 9;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(271, 132);
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(271, 127);
             label2.Name = "label2";
-            label2.Size = new Size(93, 15);
+            label2.Size = new Size(135, 21);
             label2.TabIndex = 10;
             label2.Text = "DataMovimento";
             // 
@@ -163,13 +167,13 @@
             Controls.Add(btnAtualizar);
             Controls.Add(label4);
             Controls.Add(label2);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(dateMovimento);
             Controls.Add(btnPesquisar);
             Controls.Add(dgvEstoque);
             Controls.Add(label3);
-            Controls.Add(textBox3);
+            Controls.Add(txtQuantidade);
             Controls.Add(label1);
-            Controls.Add(textBox1);
+            Controls.Add(txtIdProduto);
             Name = "FrmEstoque";
             Text = "FrmEstoque";
             ((System.ComponentModel.ISupportInitialize)dgvEstoque).EndInit();
@@ -179,16 +183,16 @@
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox txtIdProduto;
         private Label label1;
-        private TextBox textBox3;
+        private TextBox txtQuantidade;
         private Label label3;
         private DataGridView dgvEstoque;
         private Button btnPesquisar;
         private DataGridViewTextBoxColumn clnID;
         private DataGridViewTextBoxColumn clnQuantidade;
         private DataGridViewTextBoxColumn clnDataMovimento;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dateMovimento;
         private Label label2;
         private Label label4;
         private Button btnAtualizar;

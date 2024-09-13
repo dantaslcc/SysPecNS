@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SysPecNSLib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,5 +22,32 @@ namespace SysPecNSDesk
         {
 
         }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            {
+
+                Estoque estoque = new(
+                     Convert.ToInt32(txtIdProduto.Text),
+                     Convert.ToDouble(txtQuantidade.Text),
+                     dateMovimento.Value = DateTime.Now
+
+                     );
+
+                estoque.Inserir();
+                if (estoque.Id > 0)
+                {
+                    txtIdProduto.Text = estoque.Id.ToString();
+                    MessageBox.Show("Sucesso!!");
+
+                    txtIdProduto.Clear();
+                    txtQuantidade.Clear();
+
+                }
+
+
+
+            }
+        }     
     }
 }
